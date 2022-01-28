@@ -53,6 +53,7 @@ function showList() {
     for(let key in list){
         if(list[key]==='In Progress'){
             console.log(`${tabs}"${key}"`);
+            tabs+=tabs;
         }
     }
 
@@ -66,10 +67,13 @@ function showList() {
     }
 
 }
-
+addTask('Prepare for work');
+changeStatus('Prepare for work', 'Done')
+addTask('Go for a walk with dog');
+addTask('Revise some themes');
 addTask('hometask');
-changeStatus('To do my hometask', 'In progress');
-
+changeStatus('hometask', 'In Progress');
+changeStatus('Go for a walk with dog', 'In Progress');
 // Функция showList будет выводить весь список дел в виде
 // Todo:
 //     "create a new practice task",
