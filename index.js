@@ -1,23 +1,3 @@
-// Сегодня напишем простой самый простой TODO лист без графического интерфейса.
-//
-//     Хранилищем будет объект, а имена задач - ключами.
-//     const list = {
-//     "create a new practice task": "In Progress",
-//     "make a bed": "Done",
-//     "write a post": "To Do",
-// }
-//
-// Функция changeStatus - будет менять статус задачи
-// changeStatus("write a post", "Done")
-//
-// Функция addTask - добавляет новую задачу
-// addTask('have a walk')
-//
-// Функция deleteTask - удаляет задачу
-// deleteTask('have a walk')
-//
-
-//         Создайте список дел, добавьте в него пару задач, поменяйте их статусы несколько раз и выведете результат в консоль
 const list = {
     "create a new practice task": "In Progress",
     "make a bed": "Done",
@@ -39,50 +19,60 @@ function deleteTask(task) {
 }
 
 function showList() {
-    let tabs = '\t';
+    let counter = 0;
+    let whiteSpace = '\t';
     console.log(' Todo:')
+    //Finding ToDo in the object
     for (let key in list) {
         if (list[key] === 'To Do') {
-            console.log(`${tabs}"${key}"`);
-            tabs += tabs;
+            console.log(`${whiteSpace}"${key}"`);
+            whiteSpace += whiteSpace;
+            counter++;
         }
     }
-    tabs='\t\t';
-    console.log(`${tabs}In Progress:`);
-    tabs='\t';
-    for(let key in list){
-        if(list[key]==='In Progress'){
-            console.log(`${tabs}"${key}"`);
-            tabs+=tabs;
+    //Checking if there are any todo in the list
+    if (counter === 0) {
+        console.log('\t -');
+    }
+    counter = 0;
+    whiteSpace = '\t\t';
+    console.log(`${whiteSpace}In Progress:`);
+    whiteSpace = '\t';
+    //Finding In Progress in the object
+    for (let key in list) {
+        if (list[key] === 'In Progress') {
+            console.log(`${whiteSpace}"${key}"`);
+            whiteSpace += whiteSpace;
+            counter++;
         }
     }
-
+    //Checking if there are any In Progress in the list
+    if (counter === 0) {
+        console.log('\t -')
+    }
+    counter = 0;
     console.log(' Done:');
-    tabs='\t';
-    for(let key in list){
+    whiteSpace = '\t';
+    //Finding Done in the object
+    for (let key in list) {
         if (list[key] === 'Done') {
-            console.log(`${tabs}"${key}"`);
-            tabs += tabs;
+            console.log(`${whiteSpace}"${key}"`);
+            whiteSpace += whiteSpace;
+            counter++;
         }
     }
-
+    //Checking if there are any Done in the list
+    if (counter === 0) {
+        console.log('\t -')
+    }
 }
-addTask('Prepare for work');
-changeStatus('Prepare for work', 'Done')
-addTask('Go for a walk with dog');
-addTask('Revise some themes');
-addTask('hometask');
-changeStatus('hometask', 'In Progress');
-changeStatus('Go for a walk with dog', 'In Progress');
-// Функция showList будет выводить весь список дел в виде
-// Todo:
-//     "create a new practice task",
-//         "make a bed",
-//         In Progress:
-//     "write a post"
-// Done:
-//     -
-//
 
+addTask('Go for a walk with a dog');
+addTask('Go to the gym');
+changeStatus('Go to the gym', 'In Progress')
+changeStatus('write a post', 'Done')
+changeStatus('create a new practice task', 'Done')
+changeStatus('Go to the gym', 'Done');
+deleteTask('Go to the gym');
 showList();
 
