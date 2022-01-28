@@ -22,7 +22,7 @@ function showList() {
     let counter = 0;
     let whiteSpace = '\t';
     console.log(' Todo:')
-    //Finding ToDo in the object
+    //Finding 'ToDo' in the object
     for (let key in list) {
         if (list[key] === 'To Do') {
             console.log(`${whiteSpace}"${key}"`);
@@ -30,7 +30,7 @@ function showList() {
             counter++;
         }
     }
-    //Checking if there are any todo in the list
+    //Checking if there are any 'todo' in the list
     if (counter === 0) {
         console.log('\t -');
     }
@@ -38,7 +38,7 @@ function showList() {
     whiteSpace = '\t\t';
     console.log(`${whiteSpace}In Progress:`);
     whiteSpace = '\t';
-    //Finding In Progress in the object
+    //Finding 'In Progress' in the object
     for (let key in list) {
         if (list[key] === 'In Progress') {
             console.log(`${whiteSpace}"${key}"`);
@@ -46,14 +46,14 @@ function showList() {
             counter++;
         }
     }
-    //Checking if there are any In Progress in the list
+    //Checking if there are any 'In Progress in' the list
     if (counter === 0) {
         console.log('\t -')
     }
     counter = 0;
     console.log(' Done:');
     whiteSpace = '\t';
-    //Finding Done in the object
+    //Finding 'Done' in the object
     for (let key in list) {
         if (list[key] === 'Done') {
             console.log(`${whiteSpace}"${key}"`);
@@ -61,7 +61,7 @@ function showList() {
             counter++;
         }
     }
-    //Checking if there are any Done in the list
+    //Checking if there are any 'Done' in the list
     if (counter === 0) {
         console.log('\t -')
     }
