@@ -19,51 +19,32 @@ function deleteTask(task) {
 }
 
 function showList() {
-    let counter = 0;
-    let whiteSpace = '\t';
-    console.log(' Todo:')
-    //Finding 'ToDo' in the object
+    let toDo = '';
+    let inProgress = '';
+    let done = '';
     for (let key in list) {
         if (list[key] === 'To Do') {
-            console.log(`${whiteSpace}"${key}"`);
-            whiteSpace += whiteSpace;
-            counter++;
+            toDo += `"${key}"\n\t`;
+        } else if (list[key] === 'In Progress') {
+            inProgress += `"${key}"\n\t`;
+        } else if (list[key] === 'Done') {
+            done += `"${key}"\n\t`;
         }
     }
-    //Checking if there are any 'todo' in the list
-    if (counter === 0) {
-        console.log('\t -');
+    if (toDo) {
+        console.log(`ToDo:\n\t${toDo}`)
+    } else {
+        console.log('ToDo:\n\t-')
     }
-    counter = 0;
-    whiteSpace = '\t\t';
-    console.log(`${whiteSpace}In Progress:`);
-    whiteSpace = '\t';
-    //Finding 'In Progress' in the object
-    for (let key in list) {
-        if (list[key] === 'In Progress') {
-            console.log(`${whiteSpace}"${key}"`);
-            whiteSpace += whiteSpace;
-            counter++;
-        }
+    if (inProgress) {
+        console.log(`In Progress:\n\t${inProgress}`)
+    } else {
+        console.log('In Progress:\n\t-')
     }
-    //Checking if there are any 'In Progress in' the list
-    if (counter === 0) {
-        console.log('\t -')
-    }
-    counter = 0;
-    console.log(' Done:');
-    whiteSpace = '\t';
-    //Finding 'Done' in the object
-    for (let key in list) {
-        if (list[key] === 'Done') {
-            console.log(`${whiteSpace}"${key}"`);
-            whiteSpace += whiteSpace;
-            counter++;
-        }
-    }
-    //Checking if there are any 'Done' in the list
-    if (counter === 0) {
-        console.log('\t -')
+    if (done) {
+        console.log(`Done:\n\t${done}`)
+    } else {
+        console.log('Done:\n\t-')
     }
 }
 
@@ -75,4 +56,3 @@ changeStatus('create a new practice task', 'Done')
 changeStatus('Go to the gym', 'Done');
 deleteTask('Go to the gym');
 showList();
-
